@@ -32,9 +32,9 @@ func main() -> i32 {
 
 ## Adaptive control: Neuro-Plastic Network on a Wheeled Inverted Pendulum
 
-A robot balances on one wheel while its leg length and mass change between four hidden configurations without warning. The controller sees only two noisy tracking-error numbers per tick and outputs one wheel torque.
+A robot balances on one wheel while its leg length and mass change between four hidden configurations without warning. The controller sees two noisy tracking-error numbers per tick and outputs one wheel torque.
 
-The solution is a bank of tiny recurrent neurons, each only 15 numbers. Each neuron predicts the next observation and carries a controller for the regime it has learned. The neuron currently predicting best drives the robot, so it also acts as a regime detector. The bank adapts its own structure:
+The solution is a bank of tiny recurrent neurons, each 15 numbers. Each neuron predicts the next observation and carries a controller for the regime it has learned. The neuron currently predicting best drives the robot, so it also acts as a regime detector. The bank adapts its own structure:
 
 - **Spawn** a neuron when no existing one predicts well for long enough
 - **Prune** neurons that are never used
